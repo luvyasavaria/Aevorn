@@ -4,6 +4,7 @@ import { Mail } from "lucide-react";
 import InteractiveBackground from "./components/InteractiveBackground";
 import CustomCursor from "./components/CustomCursor";
 import SmoothScroll from "./components/SmoothScroll";
+import Preloader from "./components/Preloader";
 
 export default function App() {
   const [activeTab, setActiveTab] = useState("Concept");
@@ -76,6 +77,7 @@ export default function App() {
 
   return (
     <SmoothScroll>
+      <Preloader />
       <InteractiveBackground />
       <CustomCursor />
 
