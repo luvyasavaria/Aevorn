@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@400;500&display=swap');
+@import "tailwindcss";
+
+:root {
+  --background: 210 15% 8%;
+  --foreground: 0 0% 96%;
+  --muted-foreground: 220 6% 58%;
+  --primary: 0 0% 96%;
+  --primary-foreground: 0 0% 4%;
+  --secondary: 0 0% 9%;
+  --muted: 0 0% 9%;
+  --accent: 0 0% 9%;
+  --border: 0 0% 16%;
+  --input: 0 0% 16%;
+
+  --font-display: 'Playfair Display', 'Georgia', serif;
+  --font-body: 'DM Sans', 'Helvetica Neue', 'Arial', sans-serif;
+}
+
+@theme {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-muted: hsl(var(--muted));
+  --color-accent: hsl(var(--accent));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: #080a0c; /* Immersive UI core background color */
+  color: hsl(var(--foreground));
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Liquid Glass Effect */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.015);
+  background-blend-mode: luminosity;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: none;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.2px;
+  background: linear-gradient(180deg,
+    rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.12) 20%,
+    rgba(255,255,255,0) 45%, rgba(255,255,255,0) 60%,
+    rgba(255,255,255,0.12) 80%, rgba(255,255,255,0.4) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Liquid Glass Strong Effect */
+.liquid-glass-strong {
+  background: rgba(255, 255, 255, 0.02);
+  background-blend-mode: luminosity;
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+  border: none;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-glass-strong::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.4px;
+  background: linear-gradient(180deg,
+    rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.2) 20%,
+    rgba(255,255,255,0) 45%, rgba(255,255,255,0) 60%,
+    rgba(255,255,255,0.2) 80%, rgba(255,255,255,0.5) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Animations */
+@keyframes ascend {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-ascend {
+  animation: ascend 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-ascend-delay {
+  animation: ascend 1s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
+}
+
+.animate-ascend-delay-2 {
+  animation: ascend 1s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both;
+}
+
+/* Glassmorphic Section Transition */
+.section-transition {
+  width: 100%;
+  height: 120px;
+  position: relative;
+  z-index: 20;
+  background: linear-gradient(
+    to bottom,
+    rgba(8,9,10,0) 0%,
+    rgba(8,9,10,0.5) 50%,
+    rgba(8,9,10,0) 100%
+  );
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  margin-top: -60px;
+  margin-bottom: -60px;
+  pointer-events: none;
+}
